@@ -33,6 +33,22 @@ class BST {
       }
     }
   }
+
+  contains(val) {
+    if (this.root === null) return false;
+    let current = this.root;
+    let found = false;
+    while (current && !found) {
+      if (val < current.val) {
+        current = current.left;
+      } else if (val > current.right) {
+        current = current.right;
+      } else {
+        return true;
+      }
+    }
+    return false;
+  }
 }
 var tree = new BST();
 tree.insert(10);
