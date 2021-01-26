@@ -39,4 +39,26 @@ class SLL {
     }
     return current;
   }
+  shift() {
+    if (!this.head) return undefined;
+    let x = this.head;
+    this.head = x.next;
+    this.length--;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    return x;
+  }
+  unshift(val) {
+    let newNode = new Node(val);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
+  }
 }
