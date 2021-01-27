@@ -80,4 +80,17 @@ class SLL {
       return false;
     }
   }
+  reverse() {
+    let node = this.head;
+    this.head = this.tail;
+    this.tail = this.head;
+    let prev = null;
+    for (let i = 0; i < this.length; i++) {
+      let nextNode = node.next;
+      node.next = prev;
+      prev = node;
+      node = nextNode;
+    }
+    return this;
+  }
 }

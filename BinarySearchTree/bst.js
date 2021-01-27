@@ -49,6 +49,57 @@ class BST {
     }
     return false;
   }
+
+  BFS() {
+    let q = [],
+      data = [],
+      node = this.root;
+    while (q.length) {
+      node = q.shift();
+      data.push(node.val);
+      if (node.left) {
+        q.push(node.left);
+      }
+      if (node.right) {
+        q.push(node.right);
+      }
+    }
+    return data;
+  }
+  DFSPre() {
+    let data = [];
+    let current = this.root;
+    function traverse(node) {
+      data.push(node.value);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+    }
+    traverse(current);
+    return data;
+  }
+  DFSPost() {
+    let data = [];
+    let current = this.root;
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+      data.push(node.value);
+    }
+    traverse(current);
+    return data;
+  }
+
+  DFSInOder() {
+    let data = [];
+    let current = this.root;
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      data.push(node.value);
+      if (node.right) traverse(node.right);
+    }
+    traverse(current);
+    return data;
+  }
 }
 var tree = new BST();
 tree.insert(10);
