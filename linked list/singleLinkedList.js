@@ -4,6 +4,7 @@ class Node {
     this.next = null;
   }
 }
+//Singly Linked list
 
 class SLL {
   constructor() {
